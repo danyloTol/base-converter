@@ -1,13 +1,25 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-interface ListProps {
-    listItems: string[];
+export interface DropDownOption {
+    label: string;
+    value: number;
 }
 
-const DropDownList = ({listItems}: ListProps) => {
+interface ListProps {
+    listItems: DropDownOption[];
+    onSelect: (selectedValue: number) => void;
+}
+
+const DropDownList = ({listItems, onSelect}: ListProps) => {
     const [isListOpened, setIsListOpened] = useState(false);
-    const [userChoice,  setUserChoice] = useState<string>(listItems[0])
+    const [userChoice, setUserChoice] = useState<DropDownOption>(listItems[0]);
+
+    const handleSelect = (item: DropDownOption) => {
+        setUserChoice(item);
+        setIsListOpened(false);
+        onSelect(item.value);
+    };
 
     return (
         <>
@@ -15,14 +27,11 @@ const DropDownList = ({listItems}: ListProps) => {
                 <button 
                     className={`flex flex-row cursor-pointer duration-300 `} onClick={() => {setIsListOpened(!isListOpened)}}>
                         <ChevronDown className={`duration-300 ${(isListOpened ? 'rotate-180' : 'rotate-0')}`}/>
-                        {userChoice}
+                        {userChoice.label}
                 </button>
                 {isListOpened && listItems.map((item, index) => (
-                    <button className='cursor-pointer text-left' onClick={() => {
-                        setUserChoice(item)
-                        setIsListOpened(false)
-                    }} key={index}>
-                        {item}
+                    <button className='cursor-pointer text-left' onClick={() => {handleSelect(item)}} key={index}>
+                        {item.label}
                     </button>
                 ))}
             </div>
