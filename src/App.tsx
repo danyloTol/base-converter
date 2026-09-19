@@ -1,11 +1,11 @@
 import InputBox from './components/InputBox';
 import OutputBox from './components/OutputBox';
 import DropDownList, { type DropDownOption } from './components/DropDownList';
+import Modal from './components/Modal';
 import { ConversionLogic } from './utils/ConversionLogic';
 import { useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { Mail, FileText } from 'lucide-react';
-
+import { Mail, FileText, Send } from 'lucide-react';
 
 const numeralSystems: DropDownOption[] = [
   { label: 'Binary', value: 2 },
@@ -19,6 +19,7 @@ function App() {
   const [fromBase, setFromBase] = useState<number>(2);
   const [toBase, setToBase] = useState<number>(2);
   const [numberToConvert, setNumberToConvert] = useState<string>("");
+  const [isModalOpened, setIsModalOpened] = useState(false);
 
   const currentYear = new Date().getFullYear();
   
@@ -71,7 +72,12 @@ function App() {
             </div>
             <div className='w-0.5 h-full bg-[#bcbcbc]'></div>
             <div className='h-full flex flex-col gap-2 justify-center'>
-              <button className='flex flex-row gap-1 items-center cursor-pointer duration-300 hover:text-[#414141]'><Mail size={20} />Feedback</button>
+              <button 
+                className='flex flex-row gap-1 items-center cursor-pointer duration-300 hover:text-[#414141]'
+                onClick={() => setIsModalOpened(true)}>
+                  <Mail size={20} />
+                  Feedback
+              </button>
               <a href=""
                 className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141]'>
                 <FileText size={20} />
@@ -80,6 +86,23 @@ function App() {
             </div>
           </div>
         </footer>
+        <Modal 
+          isOpen={isModalOpened}
+          onClose={() => setIsModalOpened(false)}
+          title='Feedback'>
+            <div className='w-full flex flex-col gap-4'>
+              <p>tolochkodanylo.dev@gmail.com</p>
+              <div className=''>
+                <a 
+                  href='mailto:tolochkodanylo.dev@gmail.com?subject=Feedback'
+                  className='w-max flex flex-row items-center gap-1 bg-[#000000] text-[#ffffff] px-2 py-1 ml-auto rounded-lg cursor-pointer
+                                  duration-300 hover:bg-[#2f2f2f]'>
+                  <Send size={20}/> 
+                  Write
+                </a>
+              </div>
+            </div>
+        </Modal>
       </div>
     </>
   )
