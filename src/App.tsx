@@ -12,7 +12,8 @@ const numeralSystems: DropDownOption[] = [
 ];
 
 function App() {
-  const [fromBase, setFromBase] = useState<number>(10);
+  
+  const [fromBase, setFromBase] = useState<number>(2);
   const [toBase, setToBase] = useState<number>(2);
   const [numberToConvert, setNumberToConvert] = useState<string>("");
   

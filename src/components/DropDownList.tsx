@@ -9,9 +9,10 @@ export interface DropDownOption {
 interface ListProps {
     listItems: DropDownOption[];
     onSelect: (selectedValue: number) => void;
+    defaultIndex?: number;
 }
 
-const DropDownList = ({listItems, onSelect}: ListProps) => {
+const DropDownList = ({listItems, onSelect, defaultIndex = 0}: ListProps) => {
     const [isListOpened, setIsListOpened] = useState(false);
     const [userChoice, setUserChoice] = useState<DropDownOption>(listItems[0]);
 
