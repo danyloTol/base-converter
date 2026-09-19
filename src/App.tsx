@@ -3,6 +3,9 @@ import OutputBox from './components/OutputBox';
 import DropDownList, { type DropDownOption } from './components/DropDownList';
 import { ConversionLogic } from './utils/ConversionLogic';
 import { useState } from 'react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { Mail, FileText } from 'lucide-react';
+
 
 const numeralSystems: DropDownOption[] = [
   { label: 'Binary', value: 2 },
@@ -16,10 +19,12 @@ function App() {
   const [fromBase, setFromBase] = useState<number>(2);
   const [toBase, setToBase] = useState<number>(2);
   const [numberToConvert, setNumberToConvert] = useState<string>("");
+
+  const currentYear = new Date().getFullYear();
   
   return (
     <>
-      <div className='w-screen h-screen'>
+      <div className='w-5xl mx-auto min-h-screen flex flex-col'>
         <div className='w-full h-[30vh] grid grid-cols-2'>
           {/* Input Box */}
           <div className='flex flex-col gap-4 items-center justify-center'>
@@ -43,8 +48,38 @@ function App() {
             </div>
           </div>
         </div>
-        <div className='w-full flex flex-col items-center'>
-        </div>
+        <footer className='w-full h-[15vh] py-5 px-10 mt-auto border-t-2 border-[#bcbcbc]'>
+          <div className=' h-full grid grid-cols-[auto_auto_1fr_auto_auto] gap-10'>
+            <h1 className='text-3xl h-full flex items-center'>BASE CONVERTER</h1>
+            <div className='w-px h-full bg-[#bcbcbc]'></div>
+            <div className='w-full h-full flex flex-col justify-center gap-2'>
+              <div className='flex flex-row gap-5'>
+                <a href="https://github.com/danyloTol/base-converter" 
+                  className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141]'>
+                  <FaGithub size={20} />
+                  GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/danylo-tolochko-aa43b1417/" 
+                  className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141]'>
+                  <FaLinkedin size={20} />
+                  LinkedIn
+                </a>
+              </div>
+              <div>
+                <p>&copy; {currentYear} Danylo Tolochko. All rights reserved.</p>
+              </div>
+            </div>
+            <div className='w-0.5 h-full bg-[#bcbcbc]'></div>
+            <div className='h-full flex flex-col gap-2 justify-center'>
+              <button className='flex flex-row gap-1 items-center cursor-pointer duration-300 hover:text-[#414141]'><Mail size={20} />Feedback</button>
+              <a href=""
+                className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141]'>
+                <FileText size={20} />
+                Documentation
+              </a>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   )
