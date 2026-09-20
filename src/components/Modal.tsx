@@ -15,13 +15,13 @@ const Modal = ({isOpen, onClose, title, children}: ModalProps) => {
             className="fixed inset-0 z-50 flex justify-center bg-[#00000046] bg-opacity-50 backdrop-blur-xs"
             onClick={onClose}>
             <div
-                className='custom-slide-up bg-white rounded-xl shadow-2xl w-full max-w-md h-max py-3 m-4'
+                className='custom-slide-up bg-white dark:bg-[#3a3a3a] rounded-xl shadow-2xl w-full max-w-md h-max py-3 m-4'
                 onClick={(e) => e.stopPropagation()}>
                 <div className="flex justify-between items-center mb-4 px-3 pb-2 border-b-2 border-[#bcbcbc]">
-                    <h2 className="text-lg text-gray-800">{title}</h2>
+                    <h2 className="text-lg text-[#252525] dark:text-[#cbcbcb]">{title}</h2>
                     <button 
                         onClick={onClose} 
-                        className="text-gray-400 hover:text-red-500 transition-colors text-2xl cursor-pointer"
+                        className="text-[#c3c3c3] hover:text-[#a1a1a1] transition-colors text-2xl cursor-pointer"
                     >
                         &times;
                     </button>

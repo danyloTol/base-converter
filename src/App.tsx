@@ -3,6 +3,7 @@ import OutputBox from './components/OutputBox';
 import DropDownList, { type DropDownOption } from './components/DropDownList';
 import Modal from './components/Modal';
 import BinaryStream from './components/BinaryStream';
+import { ThemeToggle } from './utils/ThemeToggle';
 import { ConversionLogic } from './utils/ConversionLogic';
 import { useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -25,7 +26,7 @@ function App() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <>
+    <div className='w-screen h-screen dark:bg-[#3a3a3a] dark:text-[#ffffff]'>
       <div className='w-5xl mx-auto min-h-screen flex flex-col'>
         <div className='pb-10'>
           <BinaryStream />
@@ -43,7 +44,7 @@ function App() {
             </div>
           </div>
 
-          <div className='col-span-full flex justify-center'>
+          <div className='dark:text-[#ffffff] col-span-full flex justify-center'>
             <ChevronDown size={100}></ChevronDown>
           </div>
           
@@ -64,14 +65,19 @@ function App() {
             <div className='w-full h-full flex flex-col justify-center gap-2'>
               <div className='flex flex-row gap-5'>
                 <a href="https://github.com/danyloTol/base-converter" 
-                  className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141]'>
+                  className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
                   <FaGithub size={20} />
                   GitHub
                 </a>
                 <a href="https://www.linkedin.com/in/danylo-tolochko-aa43b1417/" 
-                  className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141]'>
+                  className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
                   <FaLinkedin size={20} />
                   LinkedIn
+                </a>
+                <a href=""
+                  className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
+                  <FileText size={20} />
+                  Documentation
                 </a>
               </div>
               <div>
@@ -81,16 +87,12 @@ function App() {
             <div className='w-0.5 h-full bg-[#bcbcbc]'></div>
             <div className='h-full flex flex-col gap-2 justify-center'>
               <button 
-                className='flex flex-row gap-1 items-center cursor-pointer duration-300 hover:text-[#414141]'
+                className='flex flex-row gap-1 items-center cursor-pointer duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'
                 onClick={() => setIsModalOpened(true)}>
                   <Mail size={20} />
                   Feedback
               </button>
-              <a href=""
-                className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141]'>
-                <FileText size={20} />
-                Documentation
-              </a>
+              <ThemeToggle />
             </div>
           </div>
         </footer>
@@ -103,8 +105,8 @@ function App() {
               <div className=''>
                 <a 
                   href='mailto:tolochkodanylo.dev@gmail.com?subject=Feedback'
-                  className='w-max flex flex-row items-center gap-1 bg-[#000000] text-[#ffffff] px-2 py-1 ml-auto rounded-lg cursor-pointer
-                                  duration-300 hover:bg-[#2f2f2f]'>
+                  className='w-max flex flex-row items-center gap-1 bg-[#000000] dark:bg-[#2c2c2c] text-[#ffffff] px-2 py-1 ml-auto rounded-lg cursor-pointer
+                                  duration-300 hover:bg-[#2f2f2f] dark:hover:bg-[#313131]'>
                   <Send size={20}/> 
                   Write
                 </a>
@@ -112,7 +114,7 @@ function App() {
             </div>
         </Modal>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -15,7 +15,7 @@ const BinaryStream = () => {
     }, []);
 
     return (
-        <div className="w-full flex flex-col items-center overflow-hidden whitespace-nowrap font-mono text-[#ffffff] bg-[#000000] py-1">
+        <div className="w-full flex flex-col items-center overflow-hidden whitespace-nowrap font-mono text-[#ffffff] bg-[#000000] dark:bg-[#2c2c2c] py-1">
             {stream}
         </div>
     );
