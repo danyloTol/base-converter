@@ -2,6 +2,7 @@ import InputBox from './components/InputBox';
 import OutputBox from './components/OutputBox';
 import DropDownList, { type DropDownOption } from './components/DropDownList';
 import Modal from './components/Modal';
+import BinaryStream from './components/BinaryStream';
 import { ConversionLogic } from './utils/ConversionLogic';
 import { useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -25,7 +26,10 @@ function App() {
   
   return (
     <>
-      <div className='w-5xl mx-auto pt-15 min-h-screen flex flex-col'>
+      <div className='w-5xl mx-auto min-h-screen flex flex-col'>
+        <div className='pb-10'>
+          <BinaryStream />
+        </div>
         <div className='w-full grid grid-rows-[auto_auto_auto]'>
           {/* Input Box */}
           <div className='grid grid-cols-[10vw_1fr] gap-4 items-center justify-center border-2 border-[#bcbcbc] rounded-2xl px-5 py-5'>
