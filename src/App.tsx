@@ -28,7 +28,7 @@ function App() {
       <div className='w-5xl mx-auto min-h-screen flex flex-col'>
         <div className='w-full h-[30vh] grid grid-cols-2'>
           {/* Input Box */}
-          <div className='flex flex-col gap-4 items-center justify-center'>
+          <div className='flex flex-col h-max mt-10 gap-4 items-center justify-center'>
             <div className='w-[30vw]'>
               <InputBox InputPlaceholder='Input' 
                 value={numberToConvert} 
@@ -40,7 +40,7 @@ function App() {
           </div>
           
           {/* Output Box */}
-          <div className='flex flex-col gap-4 items-center justify-center'>
+          <div className='flex flex-col h-max mt-10 gap-4 items-center justify-center'>
             <div className='w-[30vw]'>
               <OutputBox OutputPlaceholder='Output' OutputValue={ConversionLogic(numberToConvert, fromBase, toBase)}/>
             </div>
