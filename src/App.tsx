@@ -5,7 +5,7 @@ import Modal from './components/Modal';
 import { ConversionLogic } from './utils/ConversionLogic';
 import { useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { Mail, FileText, Send } from 'lucide-react';
+import { Mail, FileText, Send, ChevronDown } from 'lucide-react';
 
 const numeralSystems: DropDownOption[] = [
   { label: 'Binary', value: 2 },
@@ -25,27 +25,31 @@ function App() {
   
   return (
     <>
-      <div className='w-5xl mx-auto min-h-screen flex flex-col'>
-        <div className='w-full h-[30vh] grid grid-cols-2'>
+      <div className='w-5xl mx-auto pt-15 min-h-screen flex flex-col'>
+        <div className='w-full grid grid-rows-[auto_auto_auto]'>
           {/* Input Box */}
-          <div className='flex flex-col h-max mt-10 gap-4 items-center justify-center'>
-            <div className='w-[30vw]'>
+          <div className='grid grid-cols-[10vw_1fr] gap-4 items-center justify-center border-2 border-[#bcbcbc] rounded-2xl px-5 py-5'>
+            <div className='mr-auto'>
+              <DropDownList listItems={numeralSystems} onSelect={(value) => setFromBase(value)} />
+            </div>
+            <div className='w-full'>
               <InputBox InputPlaceholder='Input' 
                 value={numberToConvert} 
                 onChange={(newValue) => setNumberToConvert(newValue)}/>
             </div>
-            <div>
-              <DropDownList listItems={numeralSystems} onSelect={(value) => setFromBase(value)} />
-            </div>
+          </div>
+
+          <div className='col-span-full flex justify-center'>
+            <ChevronDown size={100}></ChevronDown>
           </div>
           
           {/* Output Box */}
-          <div className='flex flex-col h-max mt-10 gap-4 items-center justify-center'>
-            <div className='w-[30vw]'>
-              <OutputBox OutputPlaceholder='Output' OutputValue={ConversionLogic(numberToConvert, fromBase, toBase)}/>
-            </div>
-            <div>
+          <div className='grid grid-cols-[10vw_1fr] gap-4 items-center justify-center border-2 border-[#bcbcbc] rounded-2xl px-5 py-5'>
+            <div className='mr-auto'>
               <DropDownList listItems={numeralSystems} onSelect={(value) => setToBase(value)} />
+            </div>
+            <div className='w-full'>
+              <OutputBox OutputPlaceholder='Output' OutputValue={ConversionLogic(numberToConvert, fromBase, toBase)}/>
             </div>
           </div>
         </div>
