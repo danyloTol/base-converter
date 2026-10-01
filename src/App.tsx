@@ -26,70 +26,77 @@ function App() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <div className='w-screen h-screen dark:bg-[#3a3a3a] dark:text-[#ffffff]'>
-      <div className='w-5xl mx-auto min-h-screen flex flex-col'>
+    <div className='w-full min-h-screen dark:bg-[#3a3a3a] dark:text-[#ffffff]'>
+      <div className='w-full max-w-[640px] mx-auto px-5 min-h-screen flex flex-col'>
         <div className='pb-10'>
           <BinaryStream />
         </div>
-        <div className='w-full grid grid-rows-[auto_auto_auto]'>
+        <div className='w-full grid grid-rows-[auto_auto_auto] gap-5'>
           {/* Input Box */}
-          <div className='grid grid-cols-[10vw_1fr] gap-4 items-center justify-center border-2 border-[#bcbcbc] rounded-2xl px-5 py-5'>
-            <div className='mr-auto'>
-              <DropDownList listItems={numeralSystems} onSelect={(value) => setFromBase(value)} />
-            </div>
+          <div className='grid gap-3 px-10 py-5 border-2 border-[#bcbcbc] rounded-2xl'>
             <div className='w-full'>
               <InputBox InputPlaceholder='Input' 
                 value={numberToConvert} 
                 onChange={(newValue) => setNumberToConvert(newValue)}/>
             </div>
+            <div className='w-full'>
+              <DropDownList listItems={numeralSystems} onSelect={(value) => setFromBase(value)} />
+            </div>
           </div>
 
           <div className='dark:text-[#ffffff] col-span-full flex justify-center'>
-            <ChevronDown size={100}></ChevronDown>
+            <ChevronDown size={50}></ChevronDown>
           </div>
           
           {/* Output Box */}
-          <div className='grid grid-cols-[10vw_1fr] gap-4 items-center justify-center border-2 border-[#bcbcbc] rounded-2xl px-5 py-5'>
-            <div className='mr-auto'>
-              <DropDownList listItems={numeralSystems} onSelect={(value) => setToBase(value)} />
-            </div>
+          <div className='grid gap-3 px-10 py-5 border-2 border-[#bcbcbc] rounded-2xl'>
             <div className='w-full'>
-              <OutputBox OutputPlaceholder='Output' OutputValue={ConversionLogic(numberToConvert, fromBase, toBase)}/>
+              <OutputBox OutputPlaceholder='Decimal' OutputValue={ConversionLogic(numberToConvert, fromBase, 10)}/>
+            </div>
+          </div>
+          <div className='grid gap-3 px-10 py-5 border-2 border-[#bcbcbc] rounded-2xl'>
+            <div className='w-full'>
+              <OutputBox OutputPlaceholder='Binary' OutputValue={ConversionLogic(numberToConvert, fromBase, 2)}/>
+            </div>
+          </div>
+          <div className='grid gap-3 px-10 py-5 border-2 border-[#bcbcbc] rounded-2xl'>
+            <div className='w-full'>
+              <OutputBox OutputPlaceholder='Octal' OutputValue={ConversionLogic(numberToConvert, fromBase, 8)}/>
+            </div>
+          </div>
+          <div className='grid gap-3 px-10 py-5 border-2 border-[#bcbcbc] rounded-2xl'>
+            <div className='w-full'>
+              <OutputBox OutputPlaceholder='Hexadecimal' OutputValue={ConversionLogic(numberToConvert, fromBase, 16)}/>
             </div>
           </div>
         </div>
-        <footer className='w-full h-[15vh] py-5 px-10 mt-auto border-t-2 border-[#bcbcbc]'>
-          <div className=' h-full grid grid-cols-[auto_auto_1fr_auto_auto] gap-10'>
-            <h1 className='text-3xl h-full flex items-center'>BASE CONVERTER</h1>
-            <div className='w-px h-full bg-[#bcbcbc]'></div>
+        <footer className='w-full py-5 mt-auto border-t-2 border-[#bcbcbc]'>
+          <div className=' h-full grid gap-3'>
+            <h1 className='text-5xl h-full flex items-center'>BASE CONVERTER</h1>
+            <div>
+                <p className='text-2xl'>&copy; {currentYear} Danylo Tolochko. All rights reserved.</p>
+              </div>
             <div className='w-full h-full flex flex-col justify-center gap-2'>
               <div className='flex flex-row gap-5'>
                 <a href="https://github.com/danyloTol/base-converter" 
-                  className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
-                  <FaGithub size={20} />
-                  GitHub
+                  className='flex flex-row text-2xl gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
+                  <FaGithub size={45} />
                 </a>
                 <a href="https://www.linkedin.com/in/danylo-tolochko-aa43b1417/" 
-                  className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
-                  <FaLinkedin size={20} />
-                  LinkedIn
+                  className='flex flex-row text-2xl gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
+                  <FaLinkedin size={45} />
                 </a>
                 <a href=""
-                  className='flex flex-row gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
-                  <FileText size={20} />
-                  Documentation
+                  className='flex flex-row text-2xl gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
+                  <FileText size={45} />
                 </a>
               </div>
-              <div>
-                <p>&copy; {currentYear} Danylo Tolochko. All rights reserved.</p>
-              </div>
             </div>
-            <div className='w-0.5 h-full bg-[#bcbcbc]'></div>
             <div className='h-full flex flex-col gap-2 justify-center'>
               <button 
-                className='flex flex-row gap-1 items-center cursor-pointer duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'
+                className='flex flex-row text-2xl gap-1 items-center cursor-pointer duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'
                 onClick={() => setIsModalOpened(true)}>
-                  <Mail size={20} />
+                  <Mail size={40} />
                   Feedback
               </button>
               <ThemeToggle />
@@ -105,9 +112,9 @@ function App() {
               <div className=''>
                 <a 
                   href='mailto:tolochkodanylo.dev@gmail.com?subject=Feedback'
-                  className='w-max flex flex-row items-center gap-1 bg-[#000000] dark:bg-[#2c2c2c] text-[#ffffff] px-2 py-1 ml-auto rounded-lg cursor-pointer
+                  className='w-max flex flex-row items-center gap-2 bg-[#000000] dark:bg-[#2c2c2c] text-[#ffffff] text-xl px-2 py-1 ml-auto rounded-lg cursor-pointer
                                   duration-300 hover:bg-[#2f2f2f] dark:hover:bg-[#313131]'>
-                  <Send size={20}/> 
+                  <Send size={25}/> 
                   Write
                 </a>
               </div>

@@ -33,11 +33,11 @@ export const ThemeToggle = () => {
       <label 
         htmlFor="theme-toggle" 
         className="
-          bg-[#393500] w-14 h-7 rounded-full cursor-pointer relative transition-colors duration-300
+          bg-[#393500] w-18 h-10 rounded-full cursor-pointer relative transition-colors duration-300
           peer-checked:bg-[#03001d]
-          before:absolute before:content-[''] before:bg-[#ffd900] before:w-5 before:h-5 before:rounded-full before:m-1
+          before:absolute before:content-[''] before:bg-[#ffd900] before:w-8 before:h-8 before:rounded-full before:m-1
           before:transition-transform before:duration-300
-          peer-checked:before:translate-x-7 peer-checked:before:bg-[#b7b7b7]
+          peer-checked:before:translate-x-8 peer-checked:before:bg-[#b7b7b7]
         "
       ></label>
     </div>
