@@ -31,7 +31,7 @@ function App() {
         <div className='pb-10'>
           <BinaryStream />
         </div>
-        <div className='w-full grid grid-rows-[auto_auto_auto] gap-5'>
+        <div className='w-full grid grid-rows-[auto_auto_auto] gap-5 mb-10'>
           {/* Input Box */}
           <div className='grid gap-3 px-10 py-5 border-2 border-[#bcbcbc] rounded-2xl'>
             <div className='w-full'>
@@ -72,34 +72,34 @@ function App() {
         </div>
         <footer className='w-full py-5 mt-auto border-t-2 border-[#bcbcbc]'>
           <div className=' h-full grid gap-3'>
-            <h1 className='text-5xl h-full flex items-center'>BASE CONVERTER</h1>
+            <h1 className='text-3xl h-full flex items-center'>BASE CONVERTER</h1>
             <div>
-                <p className='text-2xl'>&copy; {currentYear} Danylo Tolochko. All rights reserved.</p>
+                <p className='text-sm'>&copy; {currentYear} Danylo Tolochko. All rights reserved.</p>
               </div>
             <div className='w-full h-full flex flex-col justify-center gap-2'>
               <div className='flex flex-row gap-5'>
                 <a href="https://github.com/danyloTol/base-converter" 
                   className='flex flex-row text-2xl gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
-                  <FaGithub size={45} />
+                  <FaGithub size={35} />
                 </a>
                 <a href="https://www.linkedin.com/in/danylo-tolochko-aa43b1417/" 
                   className='flex flex-row text-2xl gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
-                  <FaLinkedin size={45} />
+                  <FaLinkedin size={35} />
                 </a>
                 <a href=""
                   className='flex flex-row text-2xl gap-1 items-center duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'>
-                  <FileText size={45} />
+                  <FileText size={35} />
                 </a>
               </div>
             </div>
-            <div className='h-full flex flex-col gap-2 justify-center'>
+            <div className='h-full flex flex-row w-max gap-5 justify-center'>
+              <ThemeToggle />
               <button 
-                className='flex flex-row text-2xl gap-1 items-center cursor-pointer duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'
+                className='flex flex-row text-lg gap-1 items-center cursor-pointer duration-300 hover:text-[#414141] dark:hover:text-[#acacac]'
                 onClick={() => setIsModalOpened(true)}>
-                  <Mail size={40} />
+                  <Mail size={30} />
                   Feedback
               </button>
-              <ThemeToggle />
             </div>
           </div>
         </footer>
