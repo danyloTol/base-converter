@@ -29,8 +29,7 @@ const BinaryStream = () => {
         </span>
       </div>
 
-      {/* Ticker Stream with fading mask on right and left */}
-      <div className="relative w-full overflow-hidden ml-3 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+      <div className="relative w-full overflow-hidden ml-3 mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
         <div className="font-mono text-xs tracking-[0.25em] text-zinc-600 dark:text-zinc-400 whitespace-nowrap select-none font-medium">
           {stream}
         </div>
