@@ -29,7 +29,7 @@ export const ConversionLogic = (value: string, fromBase: number, toBase: number)
 
         convertedInt = bigIntValue.toString(toBase).toUpperCase();
 
-    } catch (error) {
+    } catch {
         return "Error";
     }
 
