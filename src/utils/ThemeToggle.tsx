@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Sun, Moon } from 'lucide-react';
 
 export const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -21,25 +22,18 @@ export const ThemeToggle = () => {
   }, [isDark]);
 
   return (
-    <div className='flex flex-row items-center'>
-      <input 
-        type="checkbox" 
-        id="theme-toggle" 
-        className='peer sr-only' 
-        checked={isDark} 
-        onChange={() => setIsDark(!isDark)} 
-      />
-      
-      <label 
-        htmlFor="theme-toggle" 
-        className="
-          bg-[#393500] w-14 h-7 rounded-full cursor-pointer relative transition-colors duration-300
-          peer-checked:bg-[#03001d]
-          before:absolute before:content-[''] before:bg-[#ffd900] before:w-5 before:h-5 before:rounded-full before:m-1
-          before:transition-transform before:duration-300
-          peer-checked:before:translate-x-7 peer-checked:before:bg-[#b7b7b7]
-        "
-      ></label>
-    </div>
+    <button
+      type="button"
+      onClick={() => setIsDark(prev => !prev)}
+      className="relative flex items-center justify-center w-9 h-9 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 shadow-xs transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+    >
+      {isDark ? (
+        <Sun className="w-4 h-4 transition-transform duration-300 rotate-0 hover:rotate-45 text-amber-400" />
+      ) : (
+        <Moon className="w-4 h-4 transition-transform duration-300 -rotate-12 hover:rotate-0 text-zinc-700" />
+      )}
+    </button>
   );
 };
